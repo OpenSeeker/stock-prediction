@@ -1,96 +1,95 @@
-# 股票/黄金价格预测系统
+# Stock/Gold Price Prediction System
 
-> 基于LSTM和贝叶斯优化的股票/黄金价格预测系统，提供未来价格走势预测和趋势分析。支持多种金融资产预测，包括股票和黄金期货，帮助投资者做出更明智的决策。
+> Stock/Gold price prediction system based on LSTM and Bayesian Optimization, providing future price trend forecasts and analysis. Supports multiple financial assets including stocks and gold futures, helping investors make informed decisions.
 
-基于深度学习和贝叶斯优化的时间序列预测工具，用于预测股票和黄金期货价格走势。本系统使用LSTM神经网络模型，结合技术指标分析，并通过贝叶斯优化自动寻找最佳超参数配置。
+A time series prediction tool based on deep learning and Bayesian optimization for forecasting stock and gold futures price trends. This system uses an LSTM neural network model combined with technical indicator analysis, and automatically discovers optimal hyperparameters through Bayesian optimization.
 
+## Key Features
 
-## 主要功能
+- **Data Acquisition**: Fetch historical price data via Yahoo Finance API
+- **Technical Analysis**: Automatically calculates technical indicators (RSI, MACD) as features
+- **Bayesian Optimization**: Uses scikit-optimize to find optimal model hyperparameters
+- **LSTM Model**: Builds Long Short-Term Memory neural networks with TensorFlow
+- **Price Prediction**: Supports single-day and date-range forecasting
+- **Trend Analysis**: Provides trend predictions (up/down) with confidence assessment
 
-- **数据获取**：通过Yahoo Finance API获取历史价格数据
-- **技术分析**：自动计算RSI、MACD等技术指标作为特征
-- **贝叶斯优化**：使用scikit-optimize寻找最优模型超参数
-- **LSTM模型**：使用TensorFlow构建长短时记忆神经网络
-- **价格预测**：支持单日预测和日期范围预测
-- **趋势分析**：提供涨跌趋势预测和置信度评估
+## Installation Guide
 
-## 安装指南
-
-1. 克隆仓库：
+1. Clone repository:
 ```bash
 git clone https://github.com/OpenSeeker/stock-prediction.git
 cd stock-prediction
 ```
 
-2. 创建虚拟环境（推荐）：
+2. Create virtual environment (recommended):
 ```bash
 python -m venv venv
 source venv/bin/activate  # Linux/macOS
 venv\Scripts\activate    # Windows
 ```
 
-3. 安装依赖：
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-## 使用说明
+## Usage Instructions
 
-运行主程序：
+Run main program:
 ```bash
 python Predict.py
 ```
 
-### 菜单选项：
-1. **训练最终模型**：使用优化后的超参数训练模型
-2. **预测下一交易日**：预测明日价格走势
-3. **预测指定日期范围**：预测多日价格走势（实验性）
-4. **运行贝叶斯优化**：自动寻找最佳模型参数
-5. **退出程序**
+### Menu Options:
+1. **Train Final Model**: Train model with optimized hyperparameters
+2. **Predict Next Trading Day**: Forecast tomorrow's price trend
+3. **Predict Custom Date Range**: Multi-day price prediction (experimental)
+4. **Run Bayesian Optimization**: Automatically find best model parameters
+5. **Exit Program**
 
-### 示例：
+### Example:
 ```python
-请输入选项 (1-5): 2
-请输入要预测的股票/黄金代码 (例如 'AAPL', 'GC=F'): GC=F
+Enter option (1-5): 2
+Enter stock/gold symbol (e.g. 'AAPL', 'GC=F'): GC=F
 
---- GC=F 在 2025-08-14 的预测 (目标: 百分比变化) ---
-预测百分比变化: 0.85%
-预测收盘价: 1980.50
-目标日期前一交易日 (2025-08-13) 收盘价: 1963.80
-预测趋势: 上涨 ▲
+--- GC=F Forecast for 2025-08-14 (Target: % Change) ---
+Predicted % Change: 0.85%
+Predicted Close Price: 1980.50
+Previous Trading Day Close (2025-08-13): 1963.80
+Predicted Trend: Up ▲
 ```
 
-## 文件结构
+## File Structure
 
 ```
 stock-prediction/
-├── Predict.py             # 主程序
-├── README.md              # 项目文档
-├── LICENSE                # 开源许可证
-├── requirements.txt       # 依赖列表
-├── saved_models/          # 训练好的模型
-├── saved_scalers/         # 特征缩放器
-├── saved_columns/         # 特征列名
-└── saved_configs/         # 优化配置
+├── Predict.py             # Main program
+├── README.md              # Documentation
+├── LICENSE                # License file
+├── requirements.txt       # Dependencies
+├── saved_models/          # Trained models
+├── saved_scalers/         # Feature scalers
+├── saved_columns/         # Feature column names
+└── saved_configs/         # Optimization configs
 ```
 
-## 技术细节
+## Technical Details
 
-- **模型架构**：双层LSTM + Dropout + Dense层
-- **正则化**：L1/L2正则化防止过拟合
-- **特征工程**：RSI、MACD、布林带等技术指标
-- **超参数优化**：高斯过程优化（Bayesian Optimization）
-- **评估指标**：方向准确率（预测涨跌正确率）
+- **Model Architecture**: 2-layer LSTM + Dropout + Dense layers
+- **Regularization**: L1/L2 regularization to prevent overfitting
+- **Feature Engineering**: Technical indicators including RSI, MACD, Bollinger Bands
+- **Hyperparameter Optimization**: Gaussian Process Optimization (Bayesian)
+- **Evaluation Metric**: Directional Accuracy (up/down prediction correctness)
 
-## 贡献指南
+## Contribution Guide
 
-欢迎贡献代码！请遵循以下步骤：
-1. Fork本仓库
-2. 创建新分支（`git checkout -b feature/your-feature`）
-3. 提交修改（`git commit -am 'Add some feature'`）
-4. 推送分支（`git push origin feature/your-feature`）
-5. 创建Pull Request
+Contributions are welcome! Please follow these steps:
+1. Fork the repository
+2. Create new branch (`git checkout -b feature/your-feature`)
+3. Commit changes (`git commit -am 'Add some feature'`)
+4. Push branch (`git push origin feature/your-feature`)
+5. Create Pull Request
 
-## 许可证
+## License
 
-本项目采用 [MIT 许可证](LICENSE) - 详情请查看LICENSE文件。
+This project is licensed under [MIT License](LICENSE) - see LICENSE file for details.
