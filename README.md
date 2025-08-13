@@ -68,7 +68,6 @@ stock-prediction/
 ├── README.md              # 项目文档
 ├── LICENSE                # 开源许可证
 ├── requirements.txt       # 依赖列表
-├── .gitignore             # Git忽略规则
 ├── saved_models/          # 训练好的模型
 ├── saved_scalers/         # 特征缩放器
 ├── saved_columns/         # 特征列名
