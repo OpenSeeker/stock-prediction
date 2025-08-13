@@ -1,0 +1,31 @@
+# Ignore saved models and configurations
+saved_models/
+saved_scalers/
+saved_columns/
+saved_configs/
+
+# Python cache and build files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+build/
+dist/
+
+# Environment files
+.env
+venv/
+
+# Editor files
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+logs/
