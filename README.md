@@ -93,3 +93,5 @@ Contributions are welcome! Please follow these steps:
 ## License
 
 This project is licensed under [MIT License](LICENSE) - see LICENSE file for details.
+
+## Give a Star!⭐
